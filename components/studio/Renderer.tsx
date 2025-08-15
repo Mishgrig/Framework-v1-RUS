@@ -1,16 +1,20 @@
 
 "use client";
 import * as React from "react";
-type Action = { type: "emit" | "toast" | "navigate"; event?: string; to?: string; message?: string };
-type Block =
-  | { type: "text"; value: string; variant?: "h1"|"h2"|"p" }
+
+export type Action = { type: "emit" | "toast" | "navigate"; event?: string; to?: string; message?: string };
+
+export type Block =
+  | { type: "text"; value: string; variant?: "h1" | "h2" | "p" }
   | { type: "button"; label: string; action?: Action }
   | { type: "input"; name: string; label?: string; placeholder?: string }
   | { type: "list"; items: string[] }
   | { type: "card"; title: string; description?: string; cta?: Action }
   | { type: "form"; fields: { name: string; label?: string; placeholder?: string }[]; submit: Action };
+
 export type Schema = { title?: string; blocks: Block[] };
-export function Renderer({ schema, onEvent }: { schema: Schema; onEvent: (e: string, payload?: any)=>void }) {
+
+export function Renderer({ schema, onEvent }: { schema: Schema; onEvent: (e: string, payload?: any) => void }) {
   function run(a?: Action) {
     if (!a) return;
     if (a.type === "emit") onEvent(a.event || "event", {});
