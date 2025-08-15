@@ -4,7 +4,7 @@ import * as React from "react";
 import dynamic from "next/dynamic";
 import { json } from "@codemirror/lang-json";
 import { compressToEncodedURIComponent, decompressFromEncodedURIComponent } from "lz-string";
-import { Renderer, type Schema } from "@/components/studio/Renderer";
+import { Renderer, type Schema, type Block } from "@/components/studio/Renderer";
 import { DeviceFrame, type Device } from "@/components/studio/DeviceFrame";
 import { CommandBar } from "@/components/studio/CommandBar";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
